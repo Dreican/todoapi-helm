@@ -13,7 +13,7 @@ image:
   repository: docker.io/dreican/todoapi
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v3"
+  tag: "v7"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -46,7 +46,7 @@ service:
   port: 80
 
 ingress:
-  enabled: true
+  enabled: false
   className: ""
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: "/"

@@ -1,0 +1,7 @@
+
+replicaCount: 5
+
+env:
+  "ASPNETCORE_ENVIRONMENT": "Production"
+  "ASPNETCORE_FORWARDEDHEADERS_ENABLED": "true"
+  "ASPNETCORE_HTTPS_PORT": 443
