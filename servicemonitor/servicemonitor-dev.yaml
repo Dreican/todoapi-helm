@@ -1,0 +1,15 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    release: prometheus
+  name: prometheus-todoapi-dev-monitor
+  namespace: todoapi-dev
+spec:
+  endpoints:
+    - path: /metrics
+      port: service
+  selector:
+    matchLables:
+      app.kubernetes.io/instance: todoapi-dev
+      app.kubernetes.io/name: todoapi
