@@ -56,6 +56,17 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          {{- if .Values.volumes.enabled }}
+          volumeMounts:
+          - name: {{ .Values.volumes.name | quote }}
+            mountPath: {{ .Values.volumes.mountPath | quote }}
+          {{- end }}
+      {{- if .Values.volumes.enabled }}
+      volumes:
+      - name : {{ .Values.volumes.name | quote }}
+        persistentVolumeClaim:
+          claimName: {{ template "todoapi.fullname" . }}
+      {{- end }}      
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

@@ -87,3 +87,14 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+persistence:
+  enabled: true
+  storageClass: nfs-client
+  accessMode: ReadWriteMany
+  size: 100Mi
+
+volumes:
+  enabled: true
+  name: db
+  mountPath: /app/db/
