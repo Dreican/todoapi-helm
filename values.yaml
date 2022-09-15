@@ -8,12 +8,13 @@ env:
   "ASPNETCORE_ENVIRONMENT": "Development"
   "ASPNETCORE_FORWARDEDHEADERS_ENABLED": "true"
   "ASPNETCORE_HTTPS_PORT": 443
+  "ConnectionString": "Data Source=database//TodoList.db" 
 
 image:
   repository: docker.io/dreican/todoapi
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v7"
+  tag: "v7-test"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -97,4 +98,4 @@ persistence:
 volumes:
   enabled: true
   name: db
-  mountPath: /app/db/
+  mountPath: /app/database/

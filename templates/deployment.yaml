@@ -27,6 +27,15 @@ spec:
       serviceAccountName: {{ include "todoapi.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      initContainers:
+        - name: init
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          command: [ 'sh', '-c', 'mv /app/db/TodoList.db /app/database/' ]
+          {{- if .Values.volumes.enabled }}
+          volumeMounts:
+          - name: {{ .Values.volumes.name | quote }}
+            mountPath: {{ .Values.volumes.mountPath | quote }}
+          {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:

@@ -5,3 +5,4 @@ env:
   "ASPNETCORE_ENVIRONMENT": "Development"
   "ASPNETCORE_FORWARDEDHEADERS_ENABLED": "true"
   "ASPNETCORE_HTTPS_PORT": 443
+  "ConnectionString": "Data Source=database//TodoList.db" 
